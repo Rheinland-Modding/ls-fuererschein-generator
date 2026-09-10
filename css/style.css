@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #0f1117;
+    --panel: #181b24;
+    --panel-light: #20242f;
+    --border: #2c313d;
+
+    --text: #f4f6f8;
+    --muted: #9299a7;
+
+    --primary: #4f8cff;
+    --primary-hover: #3d78e8;
+
+    --danger: #e05252;
+}
+
+body {
+    min-height: 100vh;
+
+    background: var(--background);
+    color: var(--text);
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+}
+
+
+/* ========================= */
+/* TOPBAR */
+/* ========================= */
+
+.topbar {
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 32px;
+
+    background: var(--panel);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: var(--primary);
+
+    font-size: 21px;
+}
+
+.brand h1 {
+    font-size: 18px;
+}
+
+.brand span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* ========================= */
+/* NAVIGATION */
+/* ========================= */
+
+nav {
+    display: flex;
+    gap: 6px;
+}
+
+.nav-btn {
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.nav-btn:hover {
+    background: var(--panel-light);
+    color: var(--text);
+}
+
+.nav-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* ========================= */
+/* MAIN */
+/* ========================= */
+
+main {
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding: 32px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* ========================= */
+/* PAGE HEADER */
+/* ========================= */
+
+.page-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 26px;
+}
+
+.page-header h2 {
+    font-size: 25px;
+}
+
+.page-header p {
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* ========================= */
+/* BUTTONS */
+/* ========================= */
+
+.primary-btn,
+.secondary-btn,
+.danger-btn {
+    border: none;
+
+    padding: 11px 17px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+}
+
+.secondary-btn {
+    background: var(--panel-light);
+    color: var(--text);
+}
+
+.secondary-btn:hover {
+    background: #292e3a;
+}
+
+.danger-btn {
+    background: var(--danger);
+    color: white;
+}
+
+.danger-btn:hover {
+    opacity: 0.85;
+}
+
+
+/* ========================= */
+/* PANELS */
+/* ========================= */
+
+.panel {
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+}
+
+
+/* ========================= */
+/* TOAST */
+/* ========================= */
+
+.toast {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 13px 18px;
+
+    background: #20242f;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+
+    .topbar {
+        height: auto;
+
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        align-items: stretch;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    .nav-btn {
+        flex: 1;
+    }
+
+    main {
+        padding: 20px 14px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .page-header {
+        flex-direction: column;
+    }
+
+    .page-header button {
+        width: 100%;
+    }
+
+}
