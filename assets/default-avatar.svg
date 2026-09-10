@@ -1,0 +1,38 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 300 360"
+>
+
+    <rect
+        width="300"
+        height="360"
+        fill="#bfc6ce"
+    />
+
+    <circle
+        cx="150"
+        cy="125"
+        r="65"
+        fill="#858e98"
+    />
+
+    <path
+        d="M55 330
+           C65 245 100 215 150 215
+           C200 215 235 245 245 330
+           Z"
+        fill="#858e98"
+    />
+
+    <text
+        x="150"
+        y="345"
+        text-anchor="middle"
+        font-family="Arial"
+        font-size="12"
+        fill="#505862"
+    >
+        RP PHOTO
+    </text>
+
+</svg>
