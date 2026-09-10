@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LS Führerschein Generator</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/license.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <div class="brand-icon">🪪</div>
+
+        <div>
+            <h1>RP License Generator</h1>
+            <span>Roleplay Dokument Generator</span>
+        </div>
+    </div>
+
+    <nav>
+        <button class="nav-btn active" data-page="generator">
+            Generator
+        </button>
+
+        <button class="nav-btn" data-page="saved">
+            Gespeichert
+        </button>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- ========================= -->
+    <!-- GENERATOR -->
+    <!-- ========================= -->
+
+    <section id="generatorPage" class="page active">
+
+        <div class="page-header">
+
+            <div>
+                <h2>Führerschein erstellen</h2>
+                <p>Erstelle einen fiktiven Führerschein für dein Roleplay.</p>
+            </div>
+
+            <button id="newLicenseBtn" class="secondary-btn">
+                + Neu
+            </button>
+
+        </div>
+
+
+        <div class="generator-layout">
+
+            <!-- FORMULAR -->
+
+            <div class="panel form-panel">
+
+                <h3>Persönliche Daten</h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="firstName">Vorname</label>
+                        <input
+                            type="text"
+                            id="firstName"
+                            placeholder="Max"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Nachname</label>
+                        <input
+                            type="text"
+                            id="lastName"
+                            placeholder="Mustermann"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthDate">Geburtsdatum</label>
+                        <input
+                            type="date"
+                            id="birthDate"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthPlace">Geburtsort</label>
+                        <input
+                            type="text"
+                            id="birthPlace"
+                            placeholder="Musterstadt"
+                        >
+                    </div>
+
+                </div>
+
+
+                <h3 class="section-title">
+                    Dokument
+                </h3>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="issueDate">
+                            Ausstellungsdatum
+                        </label>
+
+                        <input
+                            type="date"
+                            id="issueDate"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issuePlace">
+                            Ausstellungsort
+                        </label>
+
+                        <input
+                            type="text"
+                            id="issuePlace"
+                            placeholder="Musterstadt"
+                        >
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="licenseNumber">
+                            RP-Dokumentnummer
+                        </label>
+
+                        <div class="input-button">
+                            <input
+                                type="text"
+                                id="licenseNumber"
+                                readonly
+                            >
+
+                            <button
+                                type="button"
+                                id="generateNumberBtn"
+                            >
+                                Generieren
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <h3 class="section-title">
+                    Führerscheinklassen
+                </h3>
+
+                <div class="class-grid">
+
+                    <label class="class-option">
+                        <input type="checkbox" value="AM">
+                        <span>AM</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="A1">
+                        <span>A1</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="A2">
+                        <span>A2</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="A">
+                        <span>A</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="B">
+                        <span>B</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="BE">
+                        <span>BE</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="C">
+                        <span>C</span>
+                    </label>
+
+                    <label class="class-option">
+                        <input type="checkbox" value="CE">
+                        <span>CE</span>
+                    </label>
+
+                </div>
+
+
+                <h3 class="section-title">
+                    Foto
+                </h3>
+
+                <div class="upload-box">
+
+                    <input
+                        type="file"
+                        id="photoInput"
+                        accept="image/*"
+                    >
+
+                    <label for="photoInput">
+                        <span class="upload-icon">📷</span>
+                        <strong>Foto auswählen</strong>
+                        <small>JPG, PNG oder WEBP</small>
+                    </label>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        id="saveBtn"
+                        class="primary-btn"
+                    >
+                        💾 Speichern
+                    </button>
+
+                    <button
+                        id="clearBtn"
+                        class="danger-btn"
+                    >
+                        Zurücksetzen
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- VORSCHAU -->
+
+            <div class="preview-panel">
+
+                <div class="preview-header">
+
+                    <div>
+                        <h3>Vorschau</h3>
+                        <span>RP-Dokument</span>
+                    </div>
+
+                    <button
+                        id="flipBtn"
+                        class="secondary-btn"
+                    >
+                        ↔ Rückseite
+                    </button>
+
+                </div>
+
+
+                <div class="license-wrapper">
+
+                    <!-- VORDERSEITE -->
+
+                    <div
+                        id="licenseFront"
+                        class="license-card front"
+                    >
+
+                        <div class="license-top">
+
+                            <div>
+                                <span class="license-country">
+                                    ROLEPLAY
+                                </span>
+
+                                <h2>
+                                    FÜHRERSCHEIN
+                                </h2>
+                            </div>
+
+                            <div class="license-symbol">
+                                🚗
+                            </div>
+
+                        </div>
+
+
+                        <div class="license-body">
+
+                            <div class="photo-container">
+                                <img
+                                    id="previewPhoto"
+                                    src="assets/default-avatar.svg"
+                                    alt="Foto"
+                                >
+                            </div>
+
+
+                            <div class="license-info">
+
+                                <div class="license-field">
+                                    <small>VORNAME</small>
+                                    <strong id="previewFirstName">
+                                        MAX
+                                    </strong>
+                                </div>
+
+                                <div class="license-field">
+                                    <small>NACHNAME</small>
+                                    <strong id="previewLastName">
+                                        MUSTERMANN
+                                    </strong>
+                                </div>
+
+                                <div class="license-row">
+
+                                    <div class="license-field">
+                                        <small>GEBURTSDATUM</small>
+                                        <strong id="previewBirthDate">
+                                            01.01.2000
+                                        </strong>
+                                    </div>
+
+                                    <div class="license-field">
+                                        <small>GEBURTSORT</small>
+                                        <strong id="previewBirthPlace">
+                                            MUSTERSTADT
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="license-footer">
+
+                            <div>
+                                <small>RP-DOKUMENTNUMMER</small>
+                                <strong id="previewNumber">
+                                    RP-DE-000000
+                                </strong>
+                            </div>
+
+                            <div class="demo-warning">
+                                ROLEPLAY • NICHT AMTLICH
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RÜCKSEITE -->
+
+                    <div
+                        id="licenseBack"
+                        class="license-card back hidden"
+                    >
+
+                        <div class="back-header">
+                            <h2>FÜHRERSCHEINKLASSEN</h2>
+                        </div>
+
+
+                        <div class="class-table">
+
+                            <div class="class-table-header">
+                                <span>Klasse</span>
+                                <span>Berechtigung</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>AM</strong>
+                                <span>Zweirädrige Kleinfahrzeuge</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>A1</strong>
+                                <span>Leichtkrafträder</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>A2</strong>
+                                <span>Krafträder</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>A</strong>
+                                <span>Krafträder ohne Leistungsbegrenzung</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>B</strong>
+                                <span>Personenkraftwagen</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>BE</strong>
+                                <span>Fahrzeugkombinationen</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>C</strong>
+                                <span>Schwere Fahrzeuge</span>
+                            </div>
+
+                            <div class="class-row">
+                                <strong>CE</strong>
+                                <span>Schwere Fahrzeugkombinationen</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="back-information">
+
+                            <div>
+                                <small>AUSSTELLUNG</small>
+                                <strong id="previewIssueDate">
+                                    01.01.2026
+                                </strong>
+                            </div>
+
+                            <div>
+                                <small>AUSSTELLUNGSORT</small>
+                                <strong id="previewIssuePlace">
+                                    MUSTERSTADT
+                                </strong>
+                            </div>
+
+                        </div>
+
+
+                        <div class="back-warning">
+                            FIKTIVES ROLEPLAY-DOKUMENT • NICHT AMTLICH
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- GESPEICHERT -->
+    <!-- ========================= -->
+
+    <section
+        id="savedPage"
+        class="page"
+    >
+
+        <div class="page-header">
+
+            <div>
+                <h2>Gespeicherte Führerscheine</h2>
+                <p>
+                    Deine lokal gespeicherten RP-Dokumente.
+                </p>
+            </div>
+
+            <button
+                id="clearStorageBtn"
+                class="danger-btn"
+            >
+                Alle löschen
+            </button>
+
+        </div>
+
+
+        <div
+            id="savedLicenses"
+            class="saved-grid"
+        >
+
+            <!-- Wird per JavaScript gefüllt -->
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<div
+    id="toast"
+    class="toast"
+>
+    Gespeichert!
+</div>
+
+
+<script src="js/storage.js"></script>
+<script src="js/generator.js"></script>
+<script src="js/preview.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
