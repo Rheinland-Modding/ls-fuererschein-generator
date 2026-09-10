@@ -1,0 +1,251 @@
+.form-panel {
+    padding: 25px;
+}
+
+.form-panel h3 {
+    margin-bottom: 17px;
+
+    font-size: 16px;
+}
+
+.section-title {
+    margin-top: 30px;
+}
+
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    padding: 12px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    background: var(--panel-light);
+
+    color: white;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    border-color: var(--primary);
+}
+
+
+.input-button {
+    display: flex;
+
+    gap: 8px;
+}
+
+.input-button input {
+    flex: 1;
+}
+
+.input-button button {
+    padding: 0 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* ========================= */
+/* KLASSEN */
+/* ========================= */
+
+.class-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 9px;
+}
+
+.class-option {
+    cursor: pointer;
+}
+
+.class-option input {
+    display: none;
+}
+
+.class-option span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 45px;
+
+    background: var(--panel-light);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.class-option span:hover {
+    border-color: var(--primary);
+}
+
+.class-option input:checked + span {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: white;
+}
+
+
+/* ========================= */
+/* UPLOAD */
+/* ========================= */
+
+.upload-box {
+    position: relative;
+
+    height: 130px;
+
+    border: 2px dashed var(--border);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.upload-box input {
+    position: absolute;
+
+    opacity: 0;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+.upload-box label {
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    cursor: pointer;
+
+    color: var(--muted);
+}
+
+.upload-icon {
+    font-size: 27px;
+}
+
+.upload-box strong {
+    color: white;
+}
+
+.upload-box small {
+    font-size: 11px;
+}
+
+
+/* ========================= */
+/* ACTIONS */
+/* ========================= */
+
+.form-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+.form-actions button {
+    flex: 1;
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 500px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .class-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .input-button {
+        flex-direction: column;
+    }
+
+    .input-button button {
+        padding: 11px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+}
